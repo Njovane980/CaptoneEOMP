@@ -2,7 +2,7 @@ import { userRouter, express} from "./controller/UsersController.js";
 import { bookingsRouter } from "./controller/BookingsController.js";
 import { hotelRouter } from "./controller/HotelController.js";
 import cookieParser from "cookie-parser";
-import { errorHandling } from "../middleware/errorHandling.js";
+import { errorHandling } from "./middleware/ErrorHandling.js";
 import path from 'path'
 import cors from 'cors'
 import { config } from "dotenv";
@@ -28,7 +28,7 @@ app.use(
     cors()
 )
 // Router -- where you going , app get from which is the /
-app.get('^/$|/CapstoneProject', (req, res)=>{
+app.get('^/$|/capstoneprojectfullstack', (req, res)=>{
     res.status(200).sendFile(path.join(__dirname,'./static/index.Html'))
 })
 

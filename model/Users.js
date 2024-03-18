@@ -24,7 +24,7 @@ class Users {
         userAge, gender, emailAdd, userPwd
         FROM Users
         WHERE userID = ${req.params.id};
-        `;
+        `
     db.query(qry, (err, result) => {
       if (err) throw err;
       res.json({
@@ -36,20 +36,20 @@ class Users {
   async createUser(req, res) {
     // payload
     let data = req.body;
-    data.userPwd = await hash(data?.userPwd, 10);
+    data.userPwd = await hash(data ?.userPwd, 10);
     let user = {
       emailAdd: data.emailAdd,
-      userPwd: data.userPwd,
+      userPwd: data.userPwd
     };
     const qry = `
-      insert into Users (firstName,  lastName, userAge, gender, emailAdd, userPwd)
-      set ?;
-      `;
+      INSERT INTO Users
+      SET ?;
+      `
     db.query(qry, [data], (err) => {
       if (err) {
         res.json({
           status: res.statusCode,
-          msg: "This email address already exists",
+          msg: err.message,
         });
       } else {
         // create a token
@@ -58,7 +58,7 @@ class Users {
           status: res.statusCode,
           token,
           msg: "You're registered",
-        });
+        })
       }
     });
   }
@@ -70,7 +70,7 @@ class Users {
     const qry = `
               UPDATE Users
               SET ?
-              WHERE userID = ?`;
+              WHERE userID = ?`
     db.query(qry, [data, req.params.id], (err) => {
       if (err) throw err;
       res.json({
@@ -98,7 +98,7 @@ class Users {
         userAge, gender, emailAdd, userPwd
         FROM Users
         WHERE emailAdd = '${emailAdd}';
-        `;
+        `
     db.query(qry, async (err, result) => {
       if (err) throw err;
       if (!result?.length) {

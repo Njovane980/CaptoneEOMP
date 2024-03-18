@@ -5,52 +5,52 @@ const hotelRouter = express.Router();
 // Fetch Hotel pictures
 hotelRouter.get("/", (req, res) => {
   try {
-    users.fetchHotel(req, res);
+    hotel.fetchHotels(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to retrieve products",
+      msg: "Failed to retrieve rooms",
     });
   }
 });
 //  Fetch Hotel picture
 hotelRouter.get("/:id", (req, res) => {
   try {
-    users.fetchHotel(req, res);
+    hotel.fetchHotel(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to retrieve a product",
+      msg: "Failed to retrieve a room",
     });
   }
 });
-hotelRouter.post("/:add", (req, res) => {
+hotelRouter.post("/addHotel", (req, res) => {
   try {
-    users.addHotel(req, res);
+    hotel.createHotel(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to add a product",
+      msg: "Failed to add a room",
     });
   }
 });
-hotelRouter.patch("/:update", (req, res) => {
+hotelRouter.patch("/update/:id", (req, res) => {
   try {
-    users.updateHotel(req, res);
+    hotel.updateHotel(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to update a product",
+      msg: "Failed to update a room",
     });
   }
 });
-hotelRouter.delete("/:delete", (req, res) => {
+hotelRouter.delete("/delete/:id", (req, res) => {
   try {
-    users.deleteHotel(req, res);
+    hotel.deleteHotel(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to delete a product",
+      msg: "Failed to delete a room",
     });
   }
 });
