@@ -56,7 +56,7 @@
                         <p>314 Imam Haron Road, Cape Town, South Africa, 7780 SA</p>
                     </li>
                     <li>
-                        <p>+ 27 67 1454 980</p>
+                        <p>+ 27671454980</p>
                     </li>
                     <li>
                         <i class="fas fa-envelope mt-4 fa-2x"></i>
