@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <body>
         <div class="container">
             <div class="register-container">
@@ -23,6 +23,37 @@
         </div>
     </body>
     </template>
+     <script>
+     export default {
+       data() {
+         return {
+           registerData: {
+             username: '',
+             email: '',
+             password: ''
+           },
+           loginData: {
+             email: '',
+             password: ''
+           },
+           registerSuccess: false,
+           loginSuccess: false
+         };
+       },
+       methods: {
+         register() {
+           // Perform registration logic (e.g., send data to backend API)
+           // Assuming registration is successful, display success message
+           this.registerSuccess = true;
+         },
+         login() {
+           // Perform login logic (e.g., send data to backend API)
+           // Assuming login is successful, display success message
+           this.loginSuccess = true;
+         }
+       }
+     };
+     </script>
     <style>
     body, h2, form, input, button, p, a {
         margin: 0;
@@ -83,4 +114,4 @@
     a:hover {
         text-decoration: underline;
     }
-    </style>
+    </style> -->
