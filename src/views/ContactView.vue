@@ -5,7 +5,7 @@
         </div>
         <div class="row" style="border:solid 1px; padding-top:10px; padding-bottom:10px; border-radius: 20px;">
             <div class="col-md-9 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" action="#" method="POST">
+                <form id="contact-form" name="contact-form" action="https://formspree.io/f/xvoebrqo" method="POST">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="md-form mb-0">

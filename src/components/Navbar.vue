@@ -38,11 +38,11 @@
                 Contact
               </router-link>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <router-link to="/login" class="nav-link lobster-text">
-                Login/Register
+                Login
               </router-link>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>

@@ -12,7 +12,7 @@
             <div class="hotel-card" v-for="hotel in hotels" :key="hotel.hotelID">
                 
                 <div class="image-container">
-                    <img :src="hotel.imageURL" alt="hotel Image" class="hotel-image">
+                    <img :src="hotel.imageURL" alt="hotel Image" class="hotel-image" />
                 </div>
                 <div class="content">
                     <h4>{{ hotel.hotelName }}</h4>

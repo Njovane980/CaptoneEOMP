@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-const dataUrl = ''
+const dataUrl = 'https://captoneeomp-5.onrender.com/'
 export default createStore({
   state: {
     hotels: null,
@@ -12,7 +12,7 @@ export default createStore({
     setHotels(state, value) {
       state.hotels = value;
     },
-    sethotel(state, value) {
+    setHotel(state, value) {
       state.hotel = value;
     },
     setUsers(state, value) {
@@ -44,17 +44,17 @@ export default createStore({
   actions: {
      // Hotels CRUD operations
      async fetchHotels(context) {
-       let res = await fetch(`${dataUrl}Hotels`);
+       let res = await fetch(`${dataUrl}hotel`);
        let { results } = await res.json();
        if (results) {
          context.commit('setHotels', results);
        }
      },
-     async fetchhotel(context, id) {
-       let res = await fetch(`${dataUrl}Hotels/${id}`);
+     async fetchHotel(context, id) {
+       let res = await fetch(`${dataUrl}hotels/${id}`);
        let { result } = await res.json();
        if (result) {
-         context.commit('sethotel', result);
+         context.commit('setHotel', result);
        }
      },
      async updatehotel(context, updatedhotel) {
