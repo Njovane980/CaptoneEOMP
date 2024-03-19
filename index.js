@@ -28,8 +28,8 @@ app.use(
     cors()
 )
 // Router -- where you going , app get from which is the /
-app.get('^/$|/capstoneprojectfullstack', (req, res)=>{
-    res.status(200).sendFile(path.join(__dirname,'./static/index.Html'))
+app.get('^/$|/endmoduleproject_connection', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, './static/index.html'))
 })
 
 app.use('/Users', userRouter)
