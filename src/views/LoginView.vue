@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="login">
-        <h1>Login Form</h1>
+        <h1 class="text-black">Login Form</h1>
         <form  class="needs-validation" novalidate>
           <div class="input-box">
             <input type="email" v-model="payload.emailAdd" class="form-control" id="email" placeholder="Email" required>

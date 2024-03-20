@@ -37,7 +37,7 @@ export default {
         hotels() {
             return this.$store.state.hotels
         },
-        filteredhotels() {
+        filteredHotels() {
             return this.hotels.filter(hotel => hotel.hotelName.toLowerCase().includes(this.searchQuery.toLowerCase()))
         }
     },
