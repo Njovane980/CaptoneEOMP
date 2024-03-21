@@ -1,32 +1,36 @@
 import { rooms } from "../model/index.js";
 import express from "express";
-import bodyParser from "body-parser";
+
 const roomsRouter = express.Router();
-// Fetch rooms pictures
+
+// Fetch all rooms
 roomsRouter.get("/", (req, res) => {
   try {
     rooms.fetchRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to retrieve room",
+      msg: "Failed to retrieve rooms",
     });
   }
 });
-//  Fetch rooms picture
+
+// Fetch a single room by ID
 roomsRouter.get("/:id", (req, res) => {
   try {
-    rooms.fetchRooms(req, res);
+    rooms.fetchRoom(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to retrieve a room",
+      msg: "Failed to retrieve the room",
     });
   }
 });
-roomsRouter.post("/addRooms", (req, res) => {
+
+// Add a new room
+roomsRouter.post("/", (req, res) => {
   try {
-    rooms.createRooms(req, res);
+    rooms.addRoom(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -34,24 +38,29 @@ roomsRouter.post("/addRooms", (req, res) => {
     });
   }
 });
-roomsRouter.patch("/update/:id", (req, res) => {
+
+// Update a room by ID
+roomsRouter.patch("/:id", (req, res) => {
   try {
-    rooms.updateRooms(req, res);
+    rooms.updateRoom(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to update a room",
+      msg: "Failed to update the room",
     });
   }
 });
-roomsRouter.delete("/delete/:id", (req, res) => {
+
+// Delete a room by ID
+roomsRouter.delete("GET /rooms", (req, res) => {
   try {
-    rooms.deleteRooms(req, res);
+    rooms.deleteRoom(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to delete a room",
+      msg: "Failed to delete the room",
     });
   }
 });
+
 export { roomsRouter };
