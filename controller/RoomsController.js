@@ -1,11 +1,11 @@
-import { hotel } from "../model/index.js";
+import { rooms } from "../model/index.js";
 import express from "express";
 import bodyParser from "body-parser";
-const hotelRouter = express.Router();
-// Fetch Hotel pictures
-hotelRouter.get("/", (req, res) => {
+const roomsRouter = express.Router();
+// Fetch rooms pictures
+roomsRouter.get("/", (req, res) => {
   try {
-    hotel.fetchHotels(req, res);
+    rooms.fetchRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -13,10 +13,10 @@ hotelRouter.get("/", (req, res) => {
     });
   }
 });
-//  Fetch Hotel picture
-hotelRouter.get("/:id", (req, res) => {
+//  Fetch rooms picture
+roomsRouter.get("/:id", (req, res) => {
   try {
-    hotel.fetchHotel(req, res);
+    rooms.fetchRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -24,9 +24,9 @@ hotelRouter.get("/:id", (req, res) => {
     });
   }
 });
-hotelRouter.post("/addHotel", (req, res) => {
+roomsRouter.post("/addRooms", (req, res) => {
   try {
-    hotel.createHotel(req, res);
+    rooms.createRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -34,9 +34,9 @@ hotelRouter.post("/addHotel", (req, res) => {
     });
   }
 });
-hotelRouter.patch("/update/:id", (req, res) => {
+roomsRouter.patch("/update/:id", (req, res) => {
   try {
-    hotel.updateHotel(req, res);
+    rooms.updateRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -44,9 +44,9 @@ hotelRouter.patch("/update/:id", (req, res) => {
     });
   }
 });
-hotelRouter.delete("/delete/:id", (req, res) => {
+roomsRouter.delete("/delete/:id", (req, res) => {
   try {
-    hotel.deleteHotel(req, res);
+    rooms.deleteRooms(req, res);
   } catch (e) {
     res.json({
       status: res.statusCode,
@@ -54,4 +54,4 @@ hotelRouter.delete("/delete/:id", (req, res) => {
     });
   }
 });
-export { hotelRouter };
+export { roomsRouter };

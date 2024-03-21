@@ -1,11 +1,10 @@
 import { connection as db } from "../config/index.js";
-class Hotel {
-    fetchHotels(req, res) {
+class Rooms {
+    fetchRooms(req, res) {
       const qry = `
        select
-       hotelID, hotelName, hotelDesc, price
-       from
-       Hotel;
+       roomID, roomName, location, reviews, descript, features, capacity, price, imageURL
+       Rooms;
        `
       db.query(qry, (err, results) => {
         if (err) throw err;
@@ -15,12 +14,12 @@ class Hotel {
         });
       });
     }
-    fetchHotel(req, res) {
+    fetchRooms(req, res) {
       const qry = `
           SELECT 
-          hotelID, hotelName, hotelDesc, price
-          FROM Hotel
-          WHERE hotelID = ${req.params.id};
+          roomID, roomName, location, reviews, descript, features, capacity, price, imageURL
+          FROM Rooms
+          WHERE RoomsID = ${req.params.id};
           `
       db.query(qry, (err, result) => {
         if (err) throw err;
@@ -30,12 +29,12 @@ class Hotel {
         });
       });
     }
-    async createHotel(req, res) {
+    async createRooms(req, res) {
       // payload
       let data = req.body;
       
       const qry = `
-        INSERT INTO Hotel
+        INSERT INTO Rooms
         SET ?;
         `;
       db.query(qry, [data], (err) => {
@@ -52,41 +51,41 @@ class Hotel {
         }
       });
     }
-    async updateHotel(req, res) {
+    async updateRooms(req, res) {
       const data = req.body;
-      if (data?.hotelPwd) {
-        data.hotelPwd = await hash(data.hotelPwd, 8);
+      if (data?.RoomsPwd) {
+        data.RoomsPwd = await hash(data.RoomsPwd, 8);
       }
       const qry = `
-                UPDATE Hotel
+                UPDATE Rooms
                 SET ?
-                WHERE hotelID = ?`
+                WHERE RoomsID = ?`
       db.query(qry, [data, req.params.id], (err) => {
         if (err) throw err;
         res.json({
           status: res.statusCode,
-          msg: "The hotel information is updated",
+          msg: "The Rooms information is updated",
         });
       });
     }
-    async deleteHotel(req, res) {
+    async deleteRooms(req, res) {
       const qry = `
-                DELETE FROM Hotel
-                WHERE hotelID = ?`;
+                DELETE FROM Rooms
+                WHERE RoomsID = ?`;
       db.query(qry, [req.params.id], (err) => {
         if (err) throw err;
         res.json({
           status: res.statusCode,
-          msg: "hotel has been deleted",
+          msg: "Rooms has been deleted",
         });
       });
     }
     // login(req, res) {
-    //   const { emailAdd, hotelPwd } = req.body;
+    //   const { emailAdd, RoomsPwd } = req.body;
     //   const qry = `
     //       SELECT 
-    //       hotelID, hotelName, hotelDesc, price
-    //       FROM Hotel
+    //       RoomsID, RoomsName, RoomsDesc, price
+    //       FROM Rooms
     //       WHERE emailAdd = '${emailAdd}';
     //       `
     //   db.query(qry, async (err, result) => {
@@ -97,11 +96,11 @@ class Hotel {
     //         msg: "Wrong email address provided",
     //       });
     //     } else {
-    //       const validPass = await compare(hotelPwd, result[0].hotelPwd);
+    //       const validPass = await compare(RoomsPwd, result[0].RoomsPwd);
     //       if (validPass) {
     //         const token = createToken({
     //           emailAdd,
-    //           hotelPwd,
+    //           RoomsPwd,
     //         });
     //         res.json({
     //           status: res.statusCode,
@@ -119,4 +118,4 @@ class Hotel {
     //   });
     // }
   }
-  export { Hotel };
+  export { Rooms };

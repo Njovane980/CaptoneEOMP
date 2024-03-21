@@ -1,6 +1,6 @@
 import { userRouter, express} from "./controller/UsersController.js";
 import { bookingsRouter } from "./controller/BookingsController.js";
-import { hotelRouter } from "./controller/HotelController.js";
+import { roomsRouter } from "./controller/RoomsController.js";
 import cookieParser from "cookie-parser";
 import { errorHandling } from "./middleware/ErrorHandling.js";
 import path from 'path'
@@ -33,7 +33,7 @@ app.get('^/$|/endmoduleproject_connection', (req, res) => {
 })
 
 app.use('/Users', userRouter)
-app.use('/Hotel', hotelRouter)
+app.use('/Rooms', roomsRouter)
 app.use('/Bookings', bookingsRouter)
 app.use(errorHandling)
 app.listen(port, ()=>{

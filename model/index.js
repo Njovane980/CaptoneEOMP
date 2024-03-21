@@ -1,14 +1,14 @@
 import { Users } from "./Users.js";
 import { Bookings } from "./Bookings.js";
-import { Hotel } from "./Hotel.js";
+import { Rooms } from "./Rooms.js";
 
 //creating new objects
 let users = new Users()
 let bookings = new Bookings()
-let hotel = new Hotel()
+let rooms = new Rooms()
 
 export {
     users,
     bookings,
-    hotel,
+    rooms,
 }
