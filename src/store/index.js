@@ -1,19 +1,19 @@
 import { createStore } from 'vuex';
-const dataUrl = 'https://captoneeomp-5.onrender.com/'
+const dataUrl = 'https://captoneeomp-6.onrender.com'
 export default createStore({
   state: {
-    hotels: null,
-    hotel: null,
+    rooms: null,
+    room: null,
     users: null,
     user: null
   },
   
   mutations: {
-    setHotels(state, value) {
-      state.hotels = value;
+    setRooms(state, value) {
+      state.rooms = value;
     },
-    setHotel(state, value) {
-      state.hotel = value;
+    setRoom(state, value) {
+      state.room = value;
     },
     setUsers(state, value) {
       state.users = value;
@@ -21,14 +21,14 @@ export default createStore({
     setUser(state, value) {
       state.user = value;
     },
-    updatehotel(state, updatedhotel) {
-      state.hotels = state.hotels.map(hotel => (hotel.id === updatedhotel.id ? updatedhotel : hotel));
+    updateRoom(state, updatedroom) {
+      state.rooms = state.rooms.map(room => (room.id === updatedroom.id ? updatedroom : room));
     },
-    deletehotel(state, hotelId) {
-      state.hotels = state.hotels.filter(hotel => hotel.id !== hotelId);
+    deleteroom(state, roomId) {
+      state.rooms = state.rooms.filter(room => room.id !== roomId);
     },
-    addhotel(state, newhotel) {
-      state.hotels.push(newhotel);
+    addroom(state, newroom) {
+      state.rooms.push(newroom);
     },
     updateUser(state, updatedUser) {
       state.users = state.users.map(user => (user.id === updatedUser.id ? updatedUser : user));
@@ -42,45 +42,45 @@ export default createStore({
   },
 
   actions: {
-     // Hotels CRUD operations
-     async fetchHotels(context) {
-       let res = await fetch(`${dataUrl}hotel`);
+     // rooms CRUD operations
+     async fetchRooms(context) {
+       let res = await fetch(`${dataUrl}rooms`);
        let { results } = await res.json();
        if (results) {
-         context.commit('setHotels', results);
+         context.commit('setRooms', results);
        }
      },
-     async fetchHotel(context, id) {
-       let res = await fetch(`${dataUrl}hotels/${id}`);
+     async fetchRoom(context, id) {
+       let res = await fetch(`${dataUrl}rooms/${id}`);
        let { result } = await res.json();
        if (result) {
-         context.commit('setHotel', result);
+         context.commit('setroom', result);
        }
      },
-     async updatehotel(context, updatedhotel) {
-       let res = await fetch(`${dataUrl}Hotels/${updatedhotel.id}`, {
+     async updateRoom(context, updatedroom) {
+       let res = await fetch(`${dataUrl}rooms/${updatedroom.id}`, {
          method: 'PATCH',
-         body: JSON.stringify(updatedhotel),
+         body: JSON.stringify(updatedroom),
          headers: { 'Content-Type': 'application/json' }
        });
        if (res.ok) {
-         context.commit('updatehotel', updatedhotel);
+         context.commit('updateroom', updatedroom);
        }
      },
-     async deletehotel(context, hotelId) {
-       let res = await fetch(`${dataUrl}Hotels/${hotelId}`, { method: 'DELETE' });
+     async deleteroom(context, roomId) {
+       let res = await fetch(`${dataUrl}rooms/${roomId}`, { method: 'DELETE' });
        if (res.ok) {
-         context.commit('deletehotel', hotelId);
+         context.commit('deleteroom', roomId);
        }
      },
-     async addhotel(context, newhotel) {
-       let res = await fetch(`${dataUrl}Hotels`, {
+     async addroom(context, newroom) {
+       let res = await fetch(`${dataUrl}rooms`, {
          method: 'POST',
-         body: JSON.stringify(newhotel),
+         body: JSON.stringify(newroom),
          headers: { 'Content-Type': 'application/json' }
        });
        if (res.ok) {
-         context.commit('addhotel', newhotel);
+         context.commit('addroom', newroom);
        }
      },
 

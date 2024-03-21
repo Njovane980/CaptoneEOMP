@@ -1,38 +1,35 @@
 <template>
-    <div class="container">
-      <div class="login">
-        <h1 class="text-black">Login Form</h1>
-        <form  class="needs-validation" novalidate>
-          <div class="input-box">
-            <input type="email" v-model="payload.emailAdd" class="form-control" id="email" placeholder="Email" required>
-            <div class="invalid-feedback">Please provide a valid email.</div>
-            <i class="fa fa-envelope"></i>
-          </div>
-          <div class="input-box">
-            <input type="password" v-model="payload.userPwd" class="form-control" id="password" placeholder="Password" required>
-            <div class="invalid-feedback">Please provide your password.</div>
-            <i class="fa fa-lock"></i>
-          </div>
-          <button @click.prevent="Login" type="submit" class="btn btn-primary">Login</button>
-          <p class="mt-3">Don't have an account? <router-link to="/signUp">Register</router-link></p>
-        </form>
-      </div>
+    <div class="login-page">
+      <h2>Login</h2>
+      <form @submit.prevent="login">
+        <input type="email" v-model="email" placeholder="Email" required>
+        <input type="password" v-model="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p v-if="error">{{ error }}</p>
+      <router-link to="/register">Register</router-link>
     </div>
   </template>
+  
   <script>
   export default {
     data() {
       return {
-        payload:
-        {
-        emailAdd: '',
-        userPwd: ''
-        }
+        email: '',
+        password: '',
+        error: ''
       };
     },
     methods: {
-      Login(){
-        this.$store.dispatch("login", this.payload)
+      async login() {
+        try {
+          // Perform login logic
+          // Redirect user to main content page upon successful login
+          this.$router.push('/main-content');
+        } catch (error) {
+          this.error = 'Invalid email or password';
+          console.error('Login failed:', error);
+        }
       }
     }
   };

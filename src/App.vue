@@ -1,18 +1,18 @@
 <template>
   <main class="container-fluid">
-    <Navbar></Navbar>
+    <NavBar></NavBar>
     <Footer></Footer>
   <router-view/>
 </main>
 </template>
 <script>
-import Navbar from './components/Navbar.vue';
+import NavBar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 export default {
   components:{
-    Navbar,
-    Footer
-    
+    NavBar,
+    Footer,
+
   }
 }
 </script>

@@ -47,7 +47,7 @@
           console.error('Error deleting hotel:', error);
         }
       },
-    
+      
     }
   }
   </script>
