@@ -9,7 +9,7 @@ hotelRouter.get("/", (req, res) => {
   } catch (e) {
     res.json({
       status: res.statusCode,
-      msg: "Failed to retrieve rooms",
+      msg: "Failed to retrieve room",
     });
   }
 });
