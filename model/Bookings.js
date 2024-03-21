@@ -17,7 +17,7 @@ class Bookings{
     fetchBooking(req, res){
         const qry = `
         bookingID userName, userSurname, roomNumber, 
-        checkinDate,  checkoutDate, contactNumber,
+        checkinDate,  checkoutDate, contactNumber
         from Bookings
         where prodID = ${req.params.id}`
         db.query(qry, (err, results) => {
