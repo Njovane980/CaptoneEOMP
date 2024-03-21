@@ -79,9 +79,9 @@ export default {
       this.showPopup = true;
 
       // Clear form fields after submission (optional)
-      this.selectedCategory = 'explore';
+      this.selectedCategory = '';
       this.numberOfGuests = 1;
-      this.carHire = 'no';
+      this.carHire = '';
     }
   }
 };
@@ -108,7 +108,7 @@ export default {
 
 .homepage-banner {
   width: 100%;
-  height: 60vh; 
+  height: 65vh; 
   object-fit: cover;
 }
 
@@ -126,7 +126,7 @@ export default {
 }
 
 .image-container img {
-  width: 30%; /* Adjust image width as needed */
+  width: 32%; 
   height: auto;
 }
 .heading {

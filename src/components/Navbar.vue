@@ -19,8 +19,8 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/Hotels" class="nav-link lobster-text">
-                Hotels
+              <router-link to="/Accomodation" class="nav-link lobster-text">
+                Accomodation
               </router-link>
             </li>
             <li class="nav-item">

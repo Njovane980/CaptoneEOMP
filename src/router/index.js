@@ -18,9 +18,9 @@ const routes = [
     component: () => import('../views/AdminView.vue')
   },
   {
-    path: '/hotels',
-    name: 'hotels',
-    component: () => import('../views/HotelsView.vue')
+    path: '/accomodation',
+    name: 'accomodation',
+    component: () => import('../views/AccomodationView.vue')
   },
   {
     path: '/bookings',

@@ -1,9 +1,8 @@
 <template>
   <div class="main-container">
-    <!-- Content in the middle of the page -->
     <div class="booking-content">
-      <h2 class="para2">About Us</h2>
-      <!-- Add your booking system content here -->
+      <h2>About Us</h2>
+      <p class="para2">BookSpot emerged as a solution tailored to simplify the process of reserving hotel accommodations within the illustrious Proctor Hotel. Founded in 2024 by the visionary Vuyiseka Njovane, this esteemed establishment graces the vibrant landscape of Cape Town. Boasting affordability without compromising quality, the Proctor Hotel stands as a beacon for travelers seeking comfort and convenience. Nestled within proximity to renowned tourist attractions, it offers an ideal starting point for unforgettable adventures.</p>
     </div>
 
     <!-- Hotel pictures at the bottom moving slowly to the left -->
@@ -82,5 +81,8 @@ export default {
   width: 350px; /* Adjust image size as needed */
   height: auto;
   margin-right: 10px; /* Adjust spacing between images as needed */
+}
+.para2 {
+  font-size: 1.4em;
 }
 </style>
