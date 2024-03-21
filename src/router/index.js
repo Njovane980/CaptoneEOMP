@@ -18,14 +18,14 @@ const routes = [
     component: () => import('../views/AdminView.vue')
   },
   {
+    path: '/hotels',
+    name: 'hotels',
+    component: () => import('../views/HotelsView.vue')
+  },
+  {
     path: '/bookings',
     name: 'bookings',
     component: () => import('../views/BookingsView.vue')
-  },
-  {
-    path: '/notifications',
-    name: 'notifications',
-    component: () => import('../views/NotificationsView.vue')
   },
   {
     path: '/contact',

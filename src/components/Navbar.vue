@@ -19,8 +19,8 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/Bookings" class="nav-link lobster-text">
-                Bookings
+              <router-link to="/Hotels" class="nav-link lobster-text">
+                Hotels
               </router-link>
             </li>
             <li class="nav-item">
@@ -29,8 +29,8 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/Notifications" class="nav-link lobster-text">
-               Notifications
+              <router-link to="/Bookings" class="nav-link lobster-text">
+               Bookings
               </router-link>
             </li>
             <li class="nav-item">
