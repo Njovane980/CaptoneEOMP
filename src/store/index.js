@@ -1,5 +1,10 @@
 import { createStore } from 'vuex';
-const dataUrl = 'https://captoneeomp-6.onrender.com'
+import axios from 'axios'
+import {useCookies} from 'vue3-cookies'
+import sweet from "sweetalert"
+import router from "../router"
+const {cookies} = useCookies()
+const dataUrl = 'https://captoneeomp-6.onrender.com/'
 export default createStore({
   state: {
     rooms: null,
@@ -44,6 +49,7 @@ export default createStore({
   actions: {
      // rooms CRUD operations
      async fetchRooms(context) {
+      
        let res = await fetch(`${dataUrl}rooms`);
        let { results } = await res.json();
        if (results) {
@@ -126,6 +132,42 @@ export default createStore({
         if(res.ok){
           context.commit('addUser',newUser)
         }
-      }
+      },
+      async login(context, payload) {
+        try{
+          console.log(payload);
+        let { msg, results, token} = (
+          await axios.post(`${dataUrl}/users/login`, payload)).data
+          if(results){
+            context.commit("setUsers", {msg,results});
+           cookies.set("LogedUser", {token,msg,results})
+           sweet({
+            tittle: msg,
+            text:`Welcome Back,
+            ${results?.firstName} ${results?.lastName}`,
+            icon: "success",
+            timer:2000
+           })
+           router.push({name:"Users"})
+          }else{
+            sweet({
+              tittle: "Login",
+              text: msg,
+              icon: "error",
+              timer:2000
+             })
+          }
+    }catch(e){
+      sweet({
+        tittle: "error",
+        text: e.message,
+        icon: "error",
+        timer:2000
+       })
+    }
+  }
+   },
+   modules: {
+
    }
 });

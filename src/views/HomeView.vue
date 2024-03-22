@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <!-- Heading on top of homepage banner -->
+    
     <div class="heading-container">
       <h1 class="heading">Welcome to Our Website <br> Find the best places to enjoy your passions!</h1>
+      <router-link to="/login">
+      <button class="btn">Book now</button>
+    </router-link>
     </div>
 
-    <!-- Homepage banner -->
-    <img src="https://i.postimg.cc/L80cqwzX/my-website-homescreen.jpg" alt="Homepage" class="homepage-banner" loading="lazy">
+  
+  <img src="https://i.postimg.cc/L80cqwzX/my-website-homescreen.jpg" alt="Homepage" class="homepage-banner" loading="lazy">
 
     <div class="booking-form">
       <h2>Plan Your Trip</h2>
@@ -73,12 +76,9 @@ export default {
   },
   methods: {
     submitForm() {
-      // Code to handle form submission
-      // Here you can handle form data, send it to the server, etc.
-      // After form submission, show the pop-up message
+      
       this.showPopup = true;
 
-      // Clear form fields after submission (optional)
       this.selectedCategory = '';
       this.numberOfGuests = 1;
       this.carHire = '';
@@ -90,15 +90,15 @@ export default {
 <style scoped>
 .home {
   text-align: center;
-  position: relative; /* Position relative to contain absolutely positioned heading */
+  position: relative; 
 }
 
 .heading-container {
   position: absolute;
-  top: 90px; /* Adjust top distance as needed */
-  left: 20px; /* Adjust left distance as needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  padding: 10px 20px; /* Adjust padding as needed */
+  top: 90px; 
+  left: 20px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px 20px; 
 }
 
 .heading {
@@ -130,13 +130,17 @@ export default {
   height: auto;
 }
 .heading {
-      font-family: 'CurlyFont', cursive; /* Specify the custom font family and fall back to a cursive font if the custom font is not available */
-      font-size: 36px; /* Adjust the font size as needed */
+      font-family: 'CurlyFont', cursive; 
+      font-size: 36px; 
       text-align: center;
-      margin-top: 30px; /* Add margin top for spacing */
+      margin-top: 30px; 
     }
 .booking-form {
   background-color: rgba(180, 161, 100, 0.673);
  
+}
+.btn{
+  font-size: 1.8rem;
+  color: aquamarine;
 }
 </style>

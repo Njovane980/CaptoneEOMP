@@ -1,36 +1,79 @@
 <template>
-    <div class="login-page">
+  <div class="login-body">
+    <div class="login-container">
       <h2>Login</h2>
-      <form @submit.prevent="login">
-        <input type="email" v-model="email" placeholder="Email" required>
-        <input type="password" v-model="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+      <form class="login-form">
+        <label for="username">Username:</label>
+        <input type="text" v-model="payload.emailAdd" required />
+        <label for="password">Password:</label>
+        <input type="password" v-model="payload.userPwd" required />
+        <button @click.prevent="Login" type="button">Login</button>
       </form>
-      <p v-if="error">{{ error }}</p>
-      <router-link to="/register">Register</router-link>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        email: '',
-        password: '',
-        error: ''
-      };
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      payload: {
+        emailAdd: "",
+        userPwd: "",
+      },
+    };
+  },
+  methods: {
+    Login() {
+      this.$store.dispatch("login", this.payload);
     },
-    methods: {
-      async login() {
-        try {
-          // Perform login logic
-          // Redirect user to main content page upon successful login
-          this.$router.push('/main-content');
-        } catch (error) {
-          this.error = 'Invalid email or password';
-          console.error('Login failed:', error);
-        }
-      }
-    }
-  };
-  </script>
+  },
+};
+</script>
+<style scoped>
+body {
+  background-color: #BEC8D5;
+}
+.login-container {
+  width: 500px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 5px;
+}
+input[type="text"],
+input[type="password"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  padding: 10px 15px;
+  background-color: #f04;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(238, 143, 0, 0.736);
+}
+.image {
+  max-width: 100%;
+  height: 300px;
+}
+.login-body {
+  background-color: #F4F4F4;
+}
+</style>
