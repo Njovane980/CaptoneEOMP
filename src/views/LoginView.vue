@@ -60,14 +60,14 @@ input[type="password"] {
 }
 button {
   padding: 10px 15px;
-  background-color: #f04;
+  background-color: rgba(147, 90, 25, 0.511);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 button:hover {
-  background-color: rgba(238, 143, 0, 0.736);
+  background-color: rgba(109, 65, 14, 0.834);
 }
 .image {
   max-width: 100%;

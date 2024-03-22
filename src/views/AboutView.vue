@@ -5,7 +5,7 @@
       <p class="para2">BookSpot emerged as a solution tailored to simplify the process of reserving hotel accommodations within the illustrious Proctor Hotel. Founded in 2024 by the visionary Vuyiseka Njovane, this esteemed establishment graces the vibrant landscape of Cape Town. Boasting affordability without compromising quality, the Proctor Hotel stands as a beacon for travelers seeking comfort and convenience. Nestled within proximity to renowned tourist attractions, it offers an ideal starting point for unforgettable adventures.</p>
     </div>
 
-    <!-- Hotel pictures at the bottom moving slowly to the left -->
+
     <div class="hotel-pictures-container">
       <div class="hotel-pictures">
         <img v-for="(image, index) in hotelImages" :src="image" :key="index" alt="Hotel">
@@ -37,8 +37,8 @@ export default {
       setInterval(() => {
         const hotelPicturesContainer = document.querySelector('.hotel-pictures');
         hotelPicturesContainer.style.transform = `translateX(-1px)`;
-        // Adjust the translateX value as needed to control the speed of movement
-      }, 200); // Adjust the interval as needed
+        
+      }, 200); 
     }
   }
 };
@@ -55,7 +55,7 @@ export default {
 
 .booking-content {
   text-align: center;
-  margin-bottom: 50px; /* Adjust as needed */
+  margin-bottom: 50px; 
 }
 
 .hotel-pictures-container {
@@ -65,7 +65,7 @@ export default {
 
 .hotel-pictures {
   display: flex;
-  animation: slideToLeft 30s linear infinite; /* Adjust duration as needed */
+  animation: slideToLeft 30s linear infinite; 
 }
 
 @keyframes slideToLeft {
@@ -78,10 +78,10 @@ export default {
 }
 
 .hotel-pictures img {
-  width: 350px; /* Adjust image size as needed */
+  width: 350px; 
   height: auto;
-  margin-right: 10px; /* Adjust spacing between images as needed */
 }
+
 .para2 {
   font-size: 1.4em;
 }
