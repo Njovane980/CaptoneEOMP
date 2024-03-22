@@ -1,7 +1,7 @@
 import { connection as db } from "../config/index.js";
 
 class Rooms {
-    fetchRooms(req, res) {
+    fetchRooms(req , res) {
         const qry = `
         SELECT roomID, roomName, location, reviews, descript, features, capacity, price, imageURL
         FROM Rooms;
