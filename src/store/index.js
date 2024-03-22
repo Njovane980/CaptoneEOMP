@@ -49,12 +49,17 @@ export default createStore({
   actions: {
      // rooms CRUD operations
      async fetchRooms(context) {
-      
-       let res = await fetch(`${dataUrl}rooms`);
-       let { results } = await res.json();
+      try{
+       let {results} = await (await axios.get(`${dataUrl}Rooms`)).data;
        if (results) {
          context.commit('setRooms', results);
        }
+      }catch (e){
+        sweet({
+          tittle:"error",
+          text:e.message
+        })
+      }
      },
      async fetchRoom(context, id) {
        let res = await fetch(`${dataUrl}rooms/${id}`);
